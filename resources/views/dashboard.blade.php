@@ -28,7 +28,7 @@
                     <td>{{ $client->address }}</td>
                     <td>
                         @if($client->company_logo)
-                            <img src="{{ asset('storage/images' . $client->company_logo) }}" alt="{{ $client->name }} company_logo">
+                            <img src="{{ asset('public/storage/images' . $client->company_logo) }}" alt="{{ $client->name }} company_logo">
                         @else
                             No Logo
                         @endif

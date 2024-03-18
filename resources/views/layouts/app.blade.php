@@ -22,9 +22,18 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/about') }}">About</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/dashboard') }}">Dashboard</a>
-                </li>
+                @if(Auth::check())
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/dashboard') }}">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('logout') }}">Logout</a>
+                    </li>
+                @else
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">Login</a>
+                    </li>
+                @endif
             </ul>
         </div>
     </div>
