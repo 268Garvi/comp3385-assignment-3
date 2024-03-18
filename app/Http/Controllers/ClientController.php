@@ -25,22 +25,22 @@ class ClientController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
-            'phone' => 'required|string|max:20',
+            'telephone' => 'required|string|max:20',
             'address' => 'required|string|max:255',
-            'company logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'company_logo' => 'required|mimes:png,jpg,webp,svg,jpeg|max:12288',
         ]);
 
         // Upload the logo
-        $logoPath = $request->file('logo');
-        $logoPath->storeAs('logos', $logoPath->getClientOriginalName(), 'public');
+        $logoPath = $request->file('company_logo');
+        $logoPath->storeAs('images', $logoPath->getClientOriginalName(), 'public');
 
         // Save the client information to the database
         Client::create([
-            'name' => $request['name'],
+            'name' => $validatedData['name'],
             'email' => $validatedData['email'],
-            'phone' => $validatedData['phone'],
+            'telephone' => $validatedData['telephone'],
             'address' => $validatedData['address'],
-            'company logo' => $logoPath->getClientOriginalName(),
+            'company_logo' => $logoPath->getClientOriginalName(),
         ]);
 
         return redirect('/dashboard')->with('success', 'Client added successfully!');

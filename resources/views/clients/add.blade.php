@@ -23,8 +23,8 @@
                 <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" required>
             </div>
             <div class="mb-3">
-                <label for="phone" class="form-label">Phone<span style="color: red">*</span></label>
-                <input type="tel" class="form-control" id="phone" name="phone" value="{{ old('phone') }}" required
+                <label for="telephone" class="form-label">Phone<span style="color: red">*</span></label>
+                <input type="tel" class="form-control" id="telephone" name="telephone" value="{{ old('telephone') }}" required
                        pattern="^\d{3}-\d{3}-\d{4}$">
                 <small style="color: #616467">Format: 123-456-7890</small>
             </div>
@@ -34,8 +34,8 @@
                        required placeholder="3383 Antigua Ave, Five Islands Village, Antigua & Barbuda">
             </div>
             <div class="mb-3">
-                <label for="logo" class="form-label">Company Logo<span style="color: red">*</span></label>
-                <input type="file" class="form-control" id="logo" name="logo" required>
+                <label for="company_logo" class="form-label">Company Logo<span style="color: red">*</span></label>
+                <input type="file" class="form-control" id="company_logo" name="company_logo" required>
                 <small style="color: #616467">Only image files (e.g. jpg, png) are allowed, and files must be less than 2MB.</small>
             </div>
             <button type="submit" class="btn btn-primary">Create</button>
