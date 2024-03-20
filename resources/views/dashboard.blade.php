@@ -5,39 +5,21 @@
         <h1>Dashboard</h1>
         <a href="{{ asset('clients/add') }}" class="btn btn-primary">+ Create Client</a>
     </div>
-    <p class="lead">Welcome to your dashboard. Here you can manage your account, your clients and much more.</p>
+    <p class="lead">Welcome to your dashboard. Here you can manage your account, your clients, and much more.</p>
 
-    @if(count($clients) > 0)
-        <h2>Clients</h2>
-        <table class="table">
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Address</th>
-                <th>Company Logo</th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($clients as $client)
-                <tr>
-                    <td>{{ $client->name }}</td>
-                    <td>{{ $client->email }}</td>
-                    <td>{{ $client->telephone }}</td>
-                    <td>{{ $client->address }}</td>
-                    <td>
-                        @if($client->company_logo)
-                            <img src="{{ asset('public/storage/images' . $client->company_logo) }}" alt="{{ $client->name }} company_logo">
-                        @else
-                            No Logo
-                        @endif
-                    </td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
-    @else
-        <p>No clients available.</p>
-    @endif
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach($clients as $client)
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{{ asset('storage/images/'. $client->company_logo) }}" alt="{{ $client->name }} company logo" class="card-img-top"> <!-- Added class for image -->
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: #0d6dfb">{{ $client->name }}</h5>
+                        <p class="card-text">{{ $client->email }}</p>
+                        <p class="card-text">{{ $client->telephone }}</p>
+                        <p class="card-text">{{ $client->address }}</p>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
 @endsection

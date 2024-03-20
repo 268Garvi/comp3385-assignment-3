@@ -34,6 +34,7 @@ class ClientController extends Controller
         $logoPath = $request->file('company_logo');
         $logoPath->storeAs('images', $logoPath->getClientOriginalName(), 'public');
 
+
         // Save the client information to the database
         Client::create([
             'name' => $validatedData['name'],
@@ -42,6 +43,7 @@ class ClientController extends Controller
             'address' => $validatedData['address'],
             'company_logo' => $logoPath->getClientOriginalName(),
         ]);
+
 
         return redirect('/dashboard')->with('success', 'Client added successfully!');
     }
