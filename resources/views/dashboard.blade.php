@@ -10,16 +10,16 @@
     <!-- Custom CSS for card sizing -->
     <style>
         .custom-card {
-            max-width: 250px; /* Adjust card width */
-            margin: auto; /* Center card in column */
+            max-width: 250px;
+            margin: auto;
         }
         .card-img-top {
-            max-height: 150px; /* Limit image height */
-            object-fit: cover; /* Ensure image covers the area */
+            max-height: 150px;
+            object-fit: cover;
         }
     </style>
 
-    <div class="row row-cols-1 row-cols-md-4 g-4"> <!-- Increased number of columns for medium screens -->
+    <div class="row row-cols-1 row-cols-md-4 g-4">
         @foreach($clients as $client)
             <div class="col">
                 <div class="card h-100 custom-card">
